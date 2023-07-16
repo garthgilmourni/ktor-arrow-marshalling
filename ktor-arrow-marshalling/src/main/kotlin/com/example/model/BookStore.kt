@@ -7,17 +7,19 @@ import arrow.core.raise.either
 import arrow.core.raise.ensure
 import arrow.core.raise.option
 
+import com.example.model.Genre.*
+
 object BookStore {
     private val stock = nonEmptySetOf(
-        Book("Permutation City", nonEmptySetOf("Greg Egan"), Genre.Scifi) to 1,
-        Book("Project Hail Mary", nonEmptySetOf("Andy Weir"), Genre.Scifi) to 2,
-        Book("The Three-Body Problem", nonEmptySetOf("Cixin Liu"), Genre.Scifi) to 15,
-        Book("This is How You Lose the Time War", nonEmptySetOf("Amal El-Mohtar", "Max Gladstone"), Genre.Scifi) to 0,
-        Book("A Problem from Hell", nonEmptySetOf("Samantha Power"), Genre.History) to 8,
-        Book("When Genius Failed", nonEmptySetOf("Roger Lowenstein"), Genre.History) to 6,
-        Book("Brexit Unfolded", nonEmptySetOf("Chris Grey"), Genre.History) to 0,
-        Book("Lila", nonEmptySetOf("Robert Pirsig"), Genre.Philosophy) to 0,
-        Book("The Sleepwalkers", nonEmptySetOf("Arthur Koestler"), Genre.Philosophy) to 7
+        Book("Permutation City", nonEmptySetOf("Greg Egan"), Scifi) to 1,
+        Book("Project Hail Mary", nonEmptySetOf("Andy Weir"), Scifi) to 2,
+        Book("The Three-Body Problem", nonEmptySetOf("Cixin Liu"), Scifi) to 15,
+        Book("This is How You Lose the Time War", nonEmptySetOf("Amal El-Mohtar", "Max Gladstone"), Scifi) to 0,
+        Book("A Problem from Hell", nonEmptySetOf("Samantha Power"), History) to 8,
+        Book("When Genius Failed", nonEmptySetOf("Roger Lowenstein"), History) to 6,
+        Book("Brexit Unfolded", nonEmptySetOf("Chris Grey"), History) to 0,
+        Book("Lila", nonEmptySetOf("Robert Pirsig"), Philosophy) to 0,
+        Book("The Sleepwalkers", nonEmptySetOf("Arthur Koestler"), Philosophy) to 7
     )
 
     fun findByGenre(genre: Genre): Either<String, List<Book>> = either {
